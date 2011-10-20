@@ -4,12 +4,15 @@ Created on Oct 18, 2011
 @author: dromoli
 '''
 
-class Category():
+from PySide.QtGui import QStandardItem, QIcon
+
+class Category(QStandardItem):
     
-    def __init__(self, parent=None, title=None, pages=[]):
-        self.parent = parent
-        self.pages = pages
+    def __init__(self, title=None):
+        super(Category, self).__init__(title)
         self.title = title 
+        self.content = None
+        self.setIcon(QIcon('images/folder-16.png'))
         
     def add_page(self, page):
         self.pages.append(page)
